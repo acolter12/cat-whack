@@ -7,11 +7,14 @@ function renderPage() {
 
 let catOnePosition;
 let catTwoPosition;
+let score = 0;
+let gameOver = false;
 
 function beginGame() {
     for (let i = 0; i < 9; i++) {
         let hole = document.createElement("div");
         hole.id = i.toString();
+        hole.addEventListener("click", selectHole)
         document.getElementById("game-board").appendChild(hole);
     }
     
@@ -36,9 +39,6 @@ function moveCatOne(){
     }
     catOnePosition = document.getElementById(num)
     catOnePosition.appendChild(catOne);
-
-    
-    // console.log(catOnePosition)
 }
 
 function moveCatTwo(){
@@ -53,6 +53,16 @@ function moveCatTwo(){
     }
     catTwoPosition = document.getElementById(num);
     catTwoPosition.appendChild(catTwo);
-    console.log(catTwoPosition)
+}
+
+function selectHole() {
+    
+    if (this == catOnePosition) {
+        score += 100;
+        document.getElementById("score").innerText = score.toString();
+    }  if (this == catTwoPosition) {
+        score += 50;
+        document.getElementById("score").innerText = score.toString();
+    }
 }
 
