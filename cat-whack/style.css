@@ -1,0 +1,51 @@
+body{
+    background-image: url(whack-bg.jpg);
+    background-size: auto;
+    background-repeat:no-repeat;
+    overflow-x: hidden;
+    overflow-x: scroll;
+    background-size:cover;
+    width: 100%;
+    min-height: 100vh;
+    position: fixed;
+    z-index: -1;
+    margin-bottom: 2rem;
+    margin: auto;
+}
+
+
+#game-board {
+    display: flex;
+    width: 600px;
+    height: 600px;
+    flex-wrap: wrap;
+    background-color: pink;
+   align-items: center;
+   padding: 25px;
+   margin: auto;
+}
+
+#game-board div {
+    height: 200px;
+    width: 200px;
+    background-image: url(Hole.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: relative;
+    z-index: 3;
+    /* border: solid purple 1px;
+    */
+    
+}
+
+#game-board div img{
+    height: 200px;
+    width:200px;
+    position: relative;
+    z-index: -1;
+}
+
+h2{
+    color: rgb(204, 44, 124);
+}
+
