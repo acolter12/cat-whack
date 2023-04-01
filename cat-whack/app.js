@@ -31,6 +31,9 @@ function moveCatOne(){
     let catOne = document.createElement("img");
     catOne.src = "./pink-cat.png";
     let num = randomHole();
+    if (catTwoPosition && catTwoPosition.id == num) {
+        return
+    }
     catOnePosition = document.getElementById(num)
     catOnePosition.appendChild(catOne);
 
@@ -45,6 +48,9 @@ function moveCatTwo(){
     let catTwo = document.createElement("img");
     catTwo.src = "./blue-cat.png";
     let num = randomHole();
+    if (catOnePosition && catOnePosition.id == num) {
+        return
+    }
     catTwoPosition = document.getElementById(num);
     catTwoPosition.appendChild(catTwo);
     console.log(catTwoPosition)
