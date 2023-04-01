@@ -6,6 +6,7 @@ function renderPage() {
 }
 
 let catOnePosition;
+let catTwoPosition;
 
 function beginGame() {
     for (let i = 0; i < 9; i++) {
@@ -15,6 +16,7 @@ function beginGame() {
     }
     
     setInterval(moveCatOne, 1000);
+    setInterval(moveCatTwo, 2000)
 }
 
 function randomHole(){
@@ -26,13 +28,25 @@ function moveCatOne(){
     if (catOnePosition) {
         catOnePosition.innerHTML = "";
     }
-    let cat = document.createElement("img");
-    cat.src = "./pink-cat.png";
+    let catOne = document.createElement("img");
+    catOne.src = "./pink-cat.png";
     let num = randomHole();
     catOnePosition = document.getElementById(num)
-    catOnePosition.appendChild(cat);
+    catOnePosition.appendChild(catOne);
 
     
-    console.log(catOnePosition)
+    // console.log(catOnePosition)
+}
+
+function moveCatTwo(){
+    if(catTwoPosition) {
+        catTwoPosition.innerHTML = "";
+    }
+    let catTwo = document.createElement("img");
+    catTwo.src = "./blue-cat.png";
+    let num = randomHole();
+    catTwoPosition = document.getElementById(num);
+    catTwoPosition.appendChild(catTwo);
+    console.log(catTwoPosition)
 }
 
