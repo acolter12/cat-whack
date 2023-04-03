@@ -41,9 +41,22 @@ body{
     width:200px;
     position: relative;
     z-index: -1;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }
 
 h2{
+    color: rgb(204, 44, 124);
+}
+
+.game-title{
+    color:  rgb(204, 44, 124);
+}
+
+.user-heading{
     color: rgb(204, 44, 124);
 }
 
