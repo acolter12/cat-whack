@@ -1,0 +1,52 @@
+body {
+  width: 100%;
+  min-height: 100vh;
+  z-index: -1;
+  background-image: url("whack-bg.1e6c73fb.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: auto;
+  position: fixed;
+  overflow-x: scroll;
+}
+
+#game-board {
+  width: 600px;
+  height: 600px;
+  background-color: pink;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: auto;
+  padding: 25px;
+  display: flex;
+}
+
+#game-board div {
+  height: 200px;
+  width: 200px;
+  z-index: 3;
+  background-image: url("Hole.ab944a44.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  position: relative;
+}
+
+#game-board div img {
+  height: 200px;
+  width: 200px;
+  z-index: -1;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  position: relative;
+}
+
+#userDisplay {
+  color: #fff;
+}
+
+h2, .game-title, .user-heading {
+  color: #cc2c7c;
+}
+
+/*# sourceMappingURL=index.3a01df49.css.map */

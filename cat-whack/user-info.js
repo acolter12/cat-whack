@@ -1,8 +1,8 @@
 class UserInfo {
     
-    constructor(userName, score) {
+    constructor(userName) {
         this.userName = userName;
-        this.score = score;
+    
       
     }
 }

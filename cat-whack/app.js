@@ -1,5 +1,5 @@
-// import UserInfo from "./user-info";
-
+import UserInfo from "./user-info.js";
+import {displayUserStats} from "./utils.js";
 renderPage();
 
 function renderPage() {
@@ -72,24 +72,28 @@ function selectHole() {
 }
 
 function addAUser() {
-    const createButton = document.querySelector('#submit');
+    const createUserButton = document.querySelector('#createUser_button');
     const userNameInput = document.querySelector('#userName');
     
-    createButton.addEventListener('click', () => {
+    createUserButton.addEventListener('click', () => {
         const createUser = new UserInfo(userNameInput.value);
         const userDisplay = document.querySelector('#userDisplay');
         const userInfoPara = document.createElement('p');
         const userInfoSection = document.createElement('section');
-        
+
         displayUserStats(userInfoPara, createUser);
 
         userInfoSection.appendChild(userInfoPara);
         userDisplay.appendChild(userInfoSection);
-    })
+        console.log(userDisplay)
+
+        userDisplay.innerHTML = "Welcome " + userNameInput.value + "!";
+    });
 }
 
 function timer() {
     const timeRemaining = document.querySelector('#time-remaining');
+    
     gameTime--
     timeRemaining.textContent = gameTime
 

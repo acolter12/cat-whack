@@ -48,6 +48,10 @@ body{
     -ms-user-select: none;
 }
 
+#userDisplay{
+    color: white;
+}
+
 h2{
     color: rgb(204, 44, 124);
 }

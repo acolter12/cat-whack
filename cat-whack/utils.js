@@ -1,3 +1,3 @@
 export const displayUserStats = (element, object) => {
-    Element.innerTest = ' Username ' + object.userName + ' score ' + object.score;
+    Element.innerTest = ' Username ' + object.userName;
 }
