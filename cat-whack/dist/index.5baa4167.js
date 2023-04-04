@@ -574,22 +574,22 @@ var catOnePosition;
 var catTwoPosition;
 var score = 0;
 var gameOver = false;
-var gameTime = 60;
-function switchScreen(id, toggle) {
-    var element = document.getElementById(id);
-    var display = toggle ? "block" : "none";
-    element.style.display = display;
-}
-function startGame() {
-    start = document.getElementById("start");
-    start.addEventListener("click", function() {
-        console.log("start game");
-    });
-    console.log("start game");
-    switchScreen("user-page", false);
-    switchScreen("game-page", true);
-    beginGame();
-}
+var gameTime = 10;
+// function switchScreen(id, toggle) {
+//     let element = document.getElementById(id);
+//     let display = (toggle) ? "block" : "none";
+//     element.style.display = display;
+// }
+// function startGame() {
+//     start = document.getElementById('start');
+//     start.addEventListener("click", () => {
+//         console.log('start game');
+//     })
+//     console.log('start game');
+//     switchScreen('user-page', false);
+//     switchScreen("game-page", true);
+//     beginGame();
+// }
 function beginGame() {
     for(var i = 0; i < 9; i++){
         var hole = document.createElement("div");
@@ -605,11 +605,8 @@ function randomHole() {
     return num.toString();
 }
 function moveCatOne() {
-    // if (catOnePosition && catOnePosition.id == num) {
-    //     return;
-    // }
+    if (gameOver) return;
     var catOne = document.querySelector("#catOne");
-    // catOne.src = url ("./pinkCat.png");
     var num = randomHole();
     if (catTwoPosition && catTwoPosition.id == num) return;
     else if (catOnePosition && catOnePosition.id == num) return;
@@ -618,15 +615,16 @@ function moveCatOne() {
     console.log(catOnePosition);
 }
 function moveCatTwo() {
-    if (catTwoPosition) catTwoPosition.innerHTML = "";
-    var catTwo = document.createElement("img");
-    catTwo.src = "./blue-cat.png";
+    if (gameOver) return;
+    var catTwo = document.querySelector("#catTwo");
     var num = randomHole();
-    if (catOnePosition && catOnePosition.id == num) return;
+    if (catTwoPosition && catTwoPosition.id == num) return;
+    else if (catOnePosition && catOnePosition.id == num) return;
     catTwoPosition = document.getElementById(num);
     catTwoPosition.appendChild(catTwo);
 }
 function selectHole() {
+    if (gameOver) return;
     if (this == catOnePosition) {
         score += 100;
         document.getElementById("score").innerText = score.toString();
@@ -655,7 +653,11 @@ function timer() {
     var timeRemaining = document.querySelector("#time-remaining");
     gameTime--;
     timeRemaining.textContent = gameTime;
-    if (gameTime == 0) clearInterval(gameTimerId);
+    if (gameTime == 0) {
+        clearInterval(gameTimerId);
+        gameOver = true;
+        alert("Game Over! Your Score is " + score + "!");
+    }
 }
 var gameTimerId = setInterval(timer, 1000);
 

@@ -11,25 +11,26 @@ let catOnePosition;
 let catTwoPosition;
 let score = 0;
 let gameOver = false;
-let gameTime = 60;
+let gameTime = 10;
 
-function switchScreen(id, toggle) {
-    let element = document.getElementById(id);
-    let display = (toggle) ? "block" : "none";
-    element.style.display = display;
-}
 
-function startGame() {
-    start = document.getElementById('start');
+// function switchScreen(id, toggle) {
+//     let element = document.getElementById(id);
+//     let display = (toggle) ? "block" : "none";
+//     element.style.display = display;
+// }
 
-    start.addEventListener("click", () => {
-        console.log('start game');
-    })
-    console.log('start game');
-    switchScreen('user-page', false);
-    switchScreen("game-page", true);
-    beginGame();
-}
+// function startGame() {
+//     start = document.getElementById('start');
+
+//     start.addEventListener("click", () => {
+//         console.log('start game');
+//     })
+//     console.log('start game');
+//     switchScreen('user-page', false);
+//     switchScreen("game-page", true);
+//     beginGame();
+// }
 
 function beginGame() {
     
@@ -42,6 +43,7 @@ function beginGame() {
     
     setInterval(moveCatOne, 1000);
     setInterval(moveCatTwo, 2000)
+
 }
 
 
@@ -52,11 +54,12 @@ function randomHole(){
 }
 
 function moveCatOne(){
-    // if (catOnePosition && catOnePosition.id == num) {
-    //     return;
-    // }
+    if(gameOver) {
+        return
+    }
+
     let catOne = document.querySelector("#catOne");
-    // catOne.src = url ("./pinkCat.png");
+
     let num = randomHole();
     if (catTwoPosition && catTwoPosition.id == num) {
         return
@@ -65,17 +68,21 @@ function moveCatOne(){
     }
     catOnePosition = document.getElementById(num)
     catOnePosition.appendChild(catOne);
+
     console.log(catOnePosition)
 }
 
 function moveCatTwo(){
-    if(catTwoPosition) {
-        catTwoPosition.innerHTML = "";
+    if(gameOver) {
+        return
     }
-    let catTwo = document.createElement("img");
-    catTwo.src = "./blue-cat.png";
+
+    let catTwo = document.querySelector("#catTwo");
+
     let num = randomHole();
-    if (catOnePosition && catOnePosition.id == num) {
+    if (catTwoPosition && catTwoPosition.id == num) {
+        return
+    } else if (catOnePosition && catOnePosition.id == num) {
         return
     }
     catTwoPosition = document.getElementById(num);
@@ -83,7 +90,9 @@ function moveCatTwo(){
 }
 
 function selectHole() {
-    
+    if(gameOver) {
+        return
+    }
     if (this == catOnePosition) {
         score += 100;
         document.getElementById("score").innerText = score.toString();
@@ -91,6 +100,7 @@ function selectHole() {
         score += 50;
         document.getElementById("score").innerText = score.toString();
     }
+  
 }
 
 function addAUser() {
@@ -111,6 +121,7 @@ function addAUser() {
         console.log(userDisplay)
 
         userDisplay.innerHTML = "Welcome " + userNameInput.value + "!";
+
     });
 }
 
@@ -121,9 +132,13 @@ function timer() {
     timeRemaining.textContent = gameTime
 
     if (gameTime == 0) {
-        clearInterval(gameTimerId)
-    } 
+        clearInterval(gameTimerId);
+        gameOver = true;
+ alert("Game Over! Your Score is " + score + "!")
+        
+}
 }
 
 let gameTimerId = setInterval(timer, 1000)
+
 
