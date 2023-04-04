@@ -13,11 +13,9 @@ body {
 #game-board {
   width: 600px;
   height: 600px;
-  background-color: pink;
   flex-wrap: wrap;
   align-items: center;
   margin: auto;
-  padding: 25px;
   display: flex;
 }
 

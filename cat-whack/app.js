@@ -13,7 +13,26 @@ let score = 0;
 let gameOver = false;
 let gameTime = 60;
 
+function switchScreen(id, toggle) {
+    let element = document.getElementById(id);
+    let display = (toggle) ? "block" : "none";
+    element.style.display = display;
+}
+
+function startGame() {
+    start = document.getElementById('start');
+
+    start.addEventListener("click", () => {
+        console.log('start game');
+    })
+    console.log('start game');
+    switchScreen('user-page', false);
+    switchScreen("game-page", true);
+    beginGame();
+}
+
 function beginGame() {
+    
     for (let i = 0; i < 9; i++) {
         let hole = document.createElement("div");
         hole.id = i.toString();
@@ -33,17 +52,20 @@ function randomHole(){
 }
 
 function moveCatOne(){
-    if (catOnePosition) {
-        catOnePosition.innerHTML = "";
-    }
-    let catOne = document.createElement("img");
-    catOne.src = "./pink-cat.png";
+    // if (catOnePosition && catOnePosition.id == num) {
+    //     return;
+    // }
+    let catOne = document.querySelector("#catOne");
+    // catOne.src = url ("./pinkCat.png");
     let num = randomHole();
     if (catTwoPosition && catTwoPosition.id == num) {
+        return
+    } else if (catOnePosition && catOnePosition.id == num) {
         return
     }
     catOnePosition = document.getElementById(num)
     catOnePosition.appendChild(catOne);
+    console.log(catOnePosition)
 }
 
 function moveCatTwo(){
@@ -85,6 +107,7 @@ function addAUser() {
 
         userInfoSection.appendChild(userInfoPara);
         userDisplay.appendChild(userInfoSection);
+
         console.log(userDisplay)
 
         userDisplay.innerHTML = "Welcome " + userNameInput.value + "!";
@@ -99,7 +122,7 @@ function timer() {
 
     if (gameTime == 0) {
         clearInterval(gameTimerId)
-    }
+    } 
 }
 
 let gameTimerId = setInterval(timer, 1000)

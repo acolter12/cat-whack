@@ -19,9 +19,8 @@ body{
     width: 600px;
     height: 600px;
     flex-wrap: wrap;
-    background-color: pink;
    align-items: center;
-   padding: 25px;
+
    margin: auto;
 }
 
@@ -63,4 +62,6 @@ h2{
 .user-heading{
     color: rgb(204, 44, 124);
 }
+
+
 

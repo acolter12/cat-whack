@@ -8,20 +8,26 @@
     <title>Cat Whack</title>
 </head>
 <body>
+<div class="user-page">
     <h1 class="game-title">Cat Whack!</h1>
     <h3 class="user-heading">Enter A Username to Start</h3>
     <div class="user-form">
-    <input class="user-input" type="text" id="userName" placeholder="Enter Username">
+    <input class="user-input" type="text" id="userName" placeholder="Enter Username" >
     <button id="createUser_button">Play!</button>
+    <button id="start">Start</button>
     </div>
     <section id="userDisplay">
 
     </section>
+</div>
+<div class="game-page">
    <h2 class="score-title"> Score:</h2> 
    <h2 id="score">0</h2>
    <h2 class="time-remaining"> Time Remaining:</h2> 
    <h2 id="time-remaining">60</h2>
     <div id="game-board"></div>
+    <img id="catOne" src="./pinkCat.png"><img>
+</div>
     <script type=module src="app.js"></script>
 </body>
 </html>

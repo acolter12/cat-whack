@@ -575,6 +575,21 @@ var catTwoPosition;
 var score = 0;
 var gameOver = false;
 var gameTime = 60;
+function switchScreen(id, toggle) {
+    var element = document.getElementById(id);
+    var display = toggle ? "block" : "none";
+    element.style.display = display;
+}
+function startGame() {
+    start = document.getElementById("start");
+    start.addEventListener("click", function() {
+        console.log("start game");
+    });
+    console.log("start game");
+    switchScreen("user-page", false);
+    switchScreen("game-page", true);
+    beginGame();
+}
 function beginGame() {
     for(var i = 0; i < 9; i++){
         var hole = document.createElement("div");
@@ -590,13 +605,17 @@ function randomHole() {
     return num.toString();
 }
 function moveCatOne() {
-    if (catOnePosition) catOnePosition.innerHTML = "";
-    var catOne = document.createElement("img");
-    catOne.src = "./pink-cat.png";
+    // if (catOnePosition && catOnePosition.id == num) {
+    //     return;
+    // }
+    var catOne = document.querySelector("#catOne");
+    // catOne.src = url ("./pinkCat.png");
     var num = randomHole();
     if (catTwoPosition && catTwoPosition.id == num) return;
+    else if (catOnePosition && catOnePosition.id == num) return;
     catOnePosition = document.getElementById(num);
     catOnePosition.appendChild(catOne);
+    console.log(catOnePosition);
 }
 function moveCatTwo() {
     if (catTwoPosition) catTwoPosition.innerHTML = "";
@@ -640,18 +659,7 @@ function timer() {
 }
 var gameTimerId = setInterval(timer, 1000);
 
-},{"2c9b902f67b7213d":"bIDtH","1871111d0084fdf2":"9oSDi"}],"bIDtH":[function(require,module,exports) {
-"use strict";
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.displayUserStats = void 0;
-var displayUserStats = function displayUserStats(element, object) {
-    Element.innerTest = " Username " + object.userName;
-};
-exports.displayUserStats = displayUserStats;
-
-},{}],"9oSDi":[function(require,module,exports) {
+},{"1871111d0084fdf2":"9oSDi","2c9b902f67b7213d":"bIDtH"}],"9oSDi":[function(require,module,exports) {
 "use strict";
 function _typeof(obj) {
     "@babel/helpers - typeof";
@@ -705,6 +713,17 @@ var UserInfo = /*#__PURE__*/ _createClass(function UserInfo(userName) {
 });
 var _default = UserInfo;
 exports["default"] = _default;
+
+},{}],"bIDtH":[function(require,module,exports) {
+"use strict";
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.displayUserStats = void 0;
+var displayUserStats = function displayUserStats(element, object) {
+    Element.innerTest = " Username " + object.userName;
+};
+exports.displayUserStats = displayUserStats;
 
 },{}]},["2waQk","igcvL"], "igcvL", "parcelRequire0bdb")
 
