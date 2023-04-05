@@ -11,26 +11,20 @@ let catOnePosition;
 let catTwoPosition;
 let score = 0;
 let gameOver = false;
-let gameTime = 10;
+let gameTime = 60;
 
 
-// function switchScreen(id, toggle) {
-//     let element = document.getElementById(id);
-//     let display = (toggle) ? "block" : "none";
-//     element.style.display = display;
+if(!addAUser()){
+    gameOver = true
+ 
+}else if (addAUser()){
+    gameOver = false;
+}
+
+// if(!addAUser()) {
+//     gameTime = 0;
 // }
 
-// function startGame() {
-//     start = document.getElementById('start');
-
-//     start.addEventListener("click", () => {
-//         console.log('start game');
-//     })
-//     console.log('start game');
-//     switchScreen('user-page', false);
-//     switchScreen("game-page", true);
-//     beginGame();
-// }
 
 function beginGame() {
     
@@ -43,6 +37,8 @@ function beginGame() {
     
     setInterval(moveCatOne, 1000);
     setInterval(moveCatTwo, 2000)
+
+
 
 }
 
@@ -104,6 +100,7 @@ function selectHole() {
 }
 
 function addAUser() {
+
     const createUserButton = document.querySelector('#createUser_button');
     const userNameInput = document.querySelector('#userName');
     
@@ -118,10 +115,15 @@ function addAUser() {
         userInfoSection.appendChild(userInfoPara);
         userDisplay.appendChild(userInfoSection);
 
+        if(!userNameInput){
+            gameOver = true
+        }if (userNameInput){
+            gameOver = false;
+        }
+
         console.log(userDisplay)
 
         userDisplay.innerHTML = "Welcome " + userNameInput.value + "!";
-
     });
 }
 
@@ -134,9 +136,9 @@ function timer() {
     if (gameTime == 0) {
         clearInterval(gameTimerId);
         gameOver = true;
- alert("Game Over! Your Score is " + score + "!")
-        
-}
+        alert("Game Over! Your Score is " + score + "!")    
+    }
+    
 }
 
 let gameTimerId = setInterval(timer, 1000)

@@ -574,21 +574,11 @@ var catOnePosition;
 var catTwoPosition;
 var score = 0;
 var gameOver = false;
-var gameTime = 10;
-// function switchScreen(id, toggle) {
-//     let element = document.getElementById(id);
-//     let display = (toggle) ? "block" : "none";
-//     element.style.display = display;
-// }
-// function startGame() {
-//     start = document.getElementById('start');
-//     start.addEventListener("click", () => {
-//         console.log('start game');
-//     })
-//     console.log('start game');
-//     switchScreen('user-page', false);
-//     switchScreen("game-page", true);
-//     beginGame();
+var gameTime = 60;
+if (!addAUser()) gameOver = true;
+else if (addAUser()) gameOver = false;
+// if(!addAUser()) {
+//     gameTime = 0;
 // }
 function beginGame() {
     for(var i = 0; i < 9; i++){
@@ -645,6 +635,8 @@ function addAUser() {
         (0, _utils.displayUserStats)(userInfoPara, createUser);
         userInfoSection.appendChild(userInfoPara);
         userDisplay.appendChild(userInfoSection);
+        if (!userNameInput) gameOver = true;
+        if (userNameInput) gameOver = false;
         console.log(userDisplay);
         userDisplay.innerHTML = "Welcome " + userNameInput.value + "!";
     });
