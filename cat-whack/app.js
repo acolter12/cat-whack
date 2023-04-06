@@ -4,7 +4,7 @@ import {displayUserStats} from "./utils.js";
 renderPage();
 
 function renderPage() {
-    beginGame();
+    gamePlay();
     addAUser();
 }
 
@@ -21,7 +21,7 @@ if(!addAUser()){
     gameOver = false;
 }
 
-function beginGame() {
+function gamePlay() {
     
     for (let i = 0; i < 9; i++) {
         let hole = document.createElement("div");

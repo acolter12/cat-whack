@@ -567,7 +567,7 @@ function _interopRequireDefault(obj) {
 }
 renderPage();
 function renderPage() {
-    beginGame();
+    gamePlay();
     addAUser();
 }
 var catOnePosition;
@@ -577,7 +577,7 @@ var gameOver = false;
 var gameTime = 30;
 if (!addAUser()) gameOver = true;
 else if (addAUser()) gameOver = false;
-function beginGame() {
+function gamePlay() {
     for(var i = 0; i < 9; i++){
         var hole = document.createElement("div");
         hole.id = i.toString();
