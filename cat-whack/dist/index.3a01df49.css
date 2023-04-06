@@ -1,3 +1,9 @@
+@import "https://fonts.googleapis.com/css2?family=Orbitron";
+@import "https://fonts.googleapis.com/css2?family=Oi";
+* {
+  font-family: Space Mono;
+}
+
 body {
   width: 100%;
   min-height: 100vh;
@@ -8,6 +14,26 @@ body {
   margin: auto;
   position: fixed;
   overflow-x: scroll;
+}
+
+#game-page {
+  margin: auto;
+}
+
+.game-stats {
+  text-align: center;
+  width: 20%;
+  height: 100%;
+  opacity: .95;
+  background-color: purple;
+  border-radius: 1rem;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 10rem auto 5rem;
+  padding: 2rem;
+  font-family: Space Mono;
+  font-style: normal;
+  display: flex;
 }
 
 #game-board {
@@ -22,7 +48,6 @@ body {
 #game-board div {
   height: 200px;
   width: 200px;
-  z-index: 3;
   background-image: url("Hole.ab944a44.png");
   background-repeat: no-repeat;
   background-size: 100%;
@@ -30,42 +55,140 @@ body {
 }
 
 #game-board div img {
-  height: 200px;
-  width: 200px;
-  z-index: -1;
+  height: 170px;
+  width: 170px;
   -webkit-user-select: none;
   user-select: none;
   -webkit-user-drag: none;
+  z-index: -1;
+  margin: auto;
   position: relative;
 }
 
 #userDisplay {
+  width: 50%;
   color: #fff;
-  background-color: #00f;
+  margin: auto;
+  padding: 2rem;
+  font-size: 25px;
 }
 
-h2, .game-title, .user-heading {
-  color: #cc2c7c;
+h2 {
+  color: orange;
+}
+
+.game-title {
+  color: orange;
+  font-family: Space Mono;
+  font-size: 75px;
+  font-style: italic;
+}
+
+.user-heading {
+  color: orange;
 }
 
 #game-over {
-  height: -moz-fit-content;
-  height: fit-content;
-  background-color: #000;
-  display: none;
+  text-align: center;
+  width: 50%;
+  height: 100%;
+  opacity: .95;
+  background-color: purple;
+  border-radius: 1rem;
+  margin: 5rem auto auto;
+  padding: 2rem;
+  display: flex;
 }
 
 #user-page {
-  color: #fff;
-  width: 100%;
+  text-align: center;
+  width: 50%;
   height: 100%;
+  opacity: .95;
+  color: #fff;
   background-color: purple;
-  margin-top: 2rem;
+  border-radius: 1rem;
+  margin: 5rem auto auto;
+  padding: 2rem;
+  font-family: Space Mono;
+  font-style: normal;
+  display: flex;
+}
+
+.description {
+  flex-wrap: wrap;
+  font-family: Space Mono;
+  font-style: normal;
+  display: flex;
+}
+
+.info {
+  width: 50%;
+  background-color: #ff69b4;
+  border: 5px double orange;
+  border-radius: 5rem;
+  margin: auto;
+  padding: 2rem;
+}
+
+.user-input {
+  border: 3px double orange;
+  border-radius: 3rem;
+  padding: 5px;
+  font-family: Oi;
+}
+
+button {
+  letter-spacing: 2px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+  touch-action: manipulation;
+  max-width: 80rem;
+  color: #fff;
+  background-color: #0000;
+  border: 1px solid #fff;
+  border-radius: 3rem;
+  outline: 0;
+  justify-content: center;
+  margin: 2rem auto auto;
+  padding: 25px 50px;
+  font-size: 30px;
+  font-weight: 200;
+  text-decoration: none;
+  display: flex;
+  position: relative;
+}
+
+button:after {
+  content: "";
+  width: 100%;
+  z-index: -1;
+  height: 100%;
+  background-color: orange;
+  border-radius: 3rem;
+  text-decoration: none;
+  transition: all .2s;
+  position: absolute;
+  top: 7px;
+  left: 7px;
+}
+
+button:hover:after {
+  text-decoration: none;
+  top: 0;
+  left: 0;
 }
 
 #endDisplay {
   color: #fff;
-  background-color: #00f;
+  margin: auto;
+  font-size: 20px;
+}
+
+.end-title {
+  font-size: 75px;
+  font-style: italic;
 }
 
 /*# sourceMappingURL=index.3a01df49.css.map */

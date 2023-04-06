@@ -574,7 +574,7 @@ var catOnePosition;
 var catTwoPosition;
 var score = 0;
 var gameOver = false;
-var gameTime = 5;
+var gameTime = 30;
 if (!addAUser()) gameOver = true;
 else if (addAUser()) gameOver = false;
 function beginGame() {
@@ -584,8 +584,8 @@ function beginGame() {
         hole.addEventListener("click", selectHole);
         document.getElementById("game-board").appendChild(hole);
     }
-    setInterval(moveCatOne, 1000);
-    setInterval(moveCatTwo, 2000);
+    setInterval(moveCatOne, 500);
+    setInterval(moveCatTwo, 1000);
 }
 function randomHole() {
     var num = Math.floor(Math.random() * 9);
@@ -596,7 +596,7 @@ function moveCatOne() {
     var catOne = document.querySelector("#catOne");
     var num = randomHole();
     if (catTwoPosition && catTwoPosition.id == num) return;
-    else if (catOnePosition && catOnePosition.id == num) return;
+    if (catOnePosition && catOnePosition.id == num) return;
     catOnePosition = document.getElementById(num);
     catOnePosition.appendChild(catOne);
     console.log(catOnePosition);
@@ -606,7 +606,7 @@ function moveCatTwo() {
     var catTwo = document.querySelector("#catTwo");
     var num = randomHole();
     if (catTwoPosition && catTwoPosition.id == num) return;
-    else if (catOnePosition && catOnePosition.id == num) return;
+    if (catOnePosition && catOnePosition.id == num) return;
     catTwoPosition = document.getElementById(num);
     catTwoPosition.appendChild(catTwo);
 }
