@@ -8,7 +8,7 @@ body {
   width: 100%;
   min-height: 100vh;
   z-index: -1;
-  background-image: url("whack-bg.1e6c73fb.jpg");
+  background-image: url("catWhack_bg.d35d715a.png");
   background-repeat: no-repeat;
   background-size: cover;
   margin: auto;
@@ -26,7 +26,8 @@ body {
   height: 100%;
   opacity: .95;
   background-color: purple;
-  border-radius: 1rem;
+  border: 5px double orange;
+  border-radius: 5rem;
   flex-wrap: wrap;
   justify-content: space-between;
   margin: 10rem auto 5rem;
@@ -48,7 +49,7 @@ body {
 #game-board div {
   height: 200px;
   width: 200px;
-  background-image: url("Hole.ab944a44.png");
+  background-image: url("hole_v2.e6ccd255.png");
   background-repeat: no-repeat;
   background-size: 100%;
   position: relative;
@@ -61,8 +62,10 @@ body {
   user-select: none;
   -webkit-user-drag: none;
   z-index: -1;
+  justify-content: center;
   margin: auto;
-  position: relative;
+  display: flex;
+  position: fixed;
 }
 
 #userDisplay {
@@ -94,7 +97,8 @@ h2 {
   height: 100%;
   opacity: .95;
   background-color: purple;
-  border-radius: 1rem;
+  border: 5px double orange;
+  border-radius: 5rem;
   margin: 5rem auto auto;
   padding: 2rem;
   display: flex;

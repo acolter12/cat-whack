@@ -5,7 +5,7 @@
 }
 
 body{
-    background-image: url(whack-bg.jpg);
+    background-image: url(catWhack_bg.png);
     background-size: auto;
     background-repeat:no-repeat;
     overflow-x: hidden;
@@ -30,7 +30,8 @@ body{
     justify-content: space-between;
     text-align: center;
     background-color: purple;
-    border-radius: 1rem;
+    border: 5px double orange;
+    border-radius: 5rem;
     width: 20%;
     height: 100%;
     opacity: 95%;
@@ -57,7 +58,7 @@ body{
 #game-board div {
     height: 200px;
     width: 200px;
-    background-image: url(Hole.png);
+    background-image: url(hole_v2.png);
     background-size: 100%;
     background-repeat: no-repeat;
     position: relative;
@@ -65,10 +66,12 @@ body{
 }
 
 #game-board div img{
+    display: flex;
+    justify-content: center;
     margin: auto;
     height: 170px;
     width:170px;
-    position: relative;
+    position: fixed;
     user-select: none;
     -moz-user-select: none;
     -webkit-user-drag: none;
@@ -106,13 +109,14 @@ h2{
     display: flex;
     text-align: center;
     background-color: purple;
-    border-radius: 1rem;
+    border: 5px double orange;
+    border-radius: 5rem;
     width: 50%;
     height: 100%;
     opacity: 95%;
     margin: auto;
     margin-top: 5rem;
-    padding-bottom: 3rem;
+    padding-bottom: 1rem;
     padding-top: 1rem;
     padding: 2rem;
 }
@@ -214,4 +218,5 @@ button:hover:after {
     font-size: 75px;
     font-style: italic;
 }
+
 

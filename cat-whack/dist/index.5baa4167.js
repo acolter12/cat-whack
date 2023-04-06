@@ -599,6 +599,7 @@ function moveCatOne() {
     if (catOnePosition && catOnePosition.id == num) return;
     catOnePosition = document.getElementById(num);
     catOnePosition.appendChild(catOne);
+    catOne.style.display = "block";
     console.log(catOnePosition);
 }
 function moveCatTwo() {
@@ -609,6 +610,7 @@ function moveCatTwo() {
     if (catOnePosition && catOnePosition.id == num) return;
     catTwoPosition = document.getElementById(num);
     catTwoPosition.appendChild(catTwo);
+    catTwo.style.display = "block";
 }
 function selectHole() {
     if (gameOver) return;
@@ -637,7 +639,7 @@ function addAUser() {
             clearInterval(gameTimerId);
         }
         if (userNameInput) gameOver = false;
-        userDisplay.innerHTML = "Nice, " + userNameInput.value + "!";
+        userDisplay.innerHTML = "Nice job, " + userNameInput.value + "!";
         var startGame = document.getElementById("user-page");
         var gamePage = document.getElementById("game-page");
         var gameOverScreen = document.getElementById("game-over");
@@ -646,7 +648,6 @@ function addAUser() {
         gameOverScreen.style.display = "none";
         clearInterval(gameTimerId);
         gameTimerId = setInterval(timer, 1000);
-        console.log(userNameInput.value);
     });
 }
 var gameTimerId;
