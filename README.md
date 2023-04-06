@@ -7,6 +7,7 @@
 - `git clone` the app
 - `cd` into the application
 - `npm install` to install the dependencies
+- `npm start` to run the application
 
 ## To Play
 
