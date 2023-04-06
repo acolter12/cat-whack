@@ -1,5 +1,6 @@
 import UserInfo from "./user-info.js";
 import {displayUserStats} from "./utils.js";
+
 renderPage();
 
 function renderPage() {
@@ -11,8 +12,7 @@ let catOnePosition;
 let catTwoPosition;
 let score = 0;
 let gameOver = false;
-let gameTime = 60;
-
+let gameTime = 5;
 
 
 if(!addAUser()){
@@ -20,9 +20,6 @@ if(!addAUser()){
 }else if (addAUser()){
     gameOver = false;
 }
-
-
-
 
 function beginGame() {
     
@@ -36,8 +33,6 @@ function beginGame() {
     setInterval(moveCatOne, 1000);
     setInterval(moveCatTwo, 2000)
 }
-
-
 
 function randomHole(){
     let num = Math.floor(Math.random() * 9);
@@ -117,9 +112,7 @@ function addAUser() {
             gameOver = false;
         }
 
-        console.log(userDisplay)
-
-        userDisplay.innerHTML = "Welcome " + userNameInput.value + "!";
+        userDisplay.innerHTML = "Nice, " + userNameInput.value + "!";
         
         let startGame = document.getElementById("user-page");
         let gamePage = document.getElementById("game-page");
@@ -129,15 +122,18 @@ function addAUser() {
         gameOverScreen.style.display = "none";
         clearInterval(gameTimerId)
         gameTimerId = setInterval(timer, 1000);
+      
+        console.log(userNameInput.value)
         
     });
-}
 
+}
+    
 var gameTimerId;
 
 function timer() {
+ 
     const timeRemaining = document.querySelector('#time-remaining');
-    // const gameOverScreen = document.querySelector('#game-over');
     gameTime--;
     timeRemaining.textContent = gameTime
 
@@ -147,23 +143,20 @@ function timer() {
         clearInterval(gameTimerId);
         gameOver = true;
         gameOverScreen();
-       // alert("Game Over! Your Score is " + score + "!")  
-        // gameOverScreen.classList.toggle('#game-over');  
     }
 
-    console.log(timer)
-
 }
-
-
 
 function gameOverScreen(){
     let startGame = document.getElementById("user-page");
     let gamePage = document.getElementById("game-page");
     let gameOverScreen = document.getElementById("game-over");
+
     startGame.style.display = "none";
     gamePage.style.display = "none";
     gameOverScreen.style.display = "block";
 
-    
+    const endDisplay = document.querySelector('#endDisplay');
+    endDisplay.innerHTML = "Your score is: " + score;
+
 }

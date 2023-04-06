@@ -574,7 +574,7 @@ var catOnePosition;
 var catTwoPosition;
 var score = 0;
 var gameOver = false;
-var gameTime = 60;
+var gameTime = 5;
 if (!addAUser()) gameOver = true;
 else if (addAUser()) gameOver = false;
 function beginGame() {
@@ -637,8 +637,7 @@ function addAUser() {
             clearInterval(gameTimerId);
         }
         if (userNameInput) gameOver = false;
-        console.log(userDisplay);
-        userDisplay.innerHTML = "Welcome " + userNameInput.value + "!";
+        userDisplay.innerHTML = "Nice, " + userNameInput.value + "!";
         var startGame = document.getElementById("user-page");
         var gamePage = document.getElementById("game-page");
         var gameOverScreen = document.getElementById("game-over");
@@ -647,22 +646,19 @@ function addAUser() {
         gameOverScreen.style.display = "none";
         clearInterval(gameTimerId);
         gameTimerId = setInterval(timer, 1000);
+        console.log(userNameInput.value);
     });
 }
 var gameTimerId;
 function timer() {
     var timeRemaining = document.querySelector("#time-remaining");
-    // const gameOverScreen = document.querySelector('#game-over');
     gameTime--;
     timeRemaining.textContent = gameTime;
     if (gameTime == 0) {
         clearInterval(gameTimerId);
         gameOver = true;
         gameOverScreen();
-    // alert("Game Over! Your Score is " + score + "!")  
-    // gameOverScreen.classList.toggle('#game-over');  
     }
-    console.log(timer);
 }
 function gameOverScreen() {
     var startGame = document.getElementById("user-page");
@@ -671,6 +667,8 @@ function gameOverScreen() {
     startGame.style.display = "none";
     gamePage.style.display = "none";
     gameOverScreen.style.display = "block";
+    var endDisplay = document.querySelector("#endDisplay");
+    endDisplay.innerHTML = "Your score is: " + score;
 }
 
 },{"1871111d0084fdf2":"9oSDi","2c9b902f67b7213d":"bIDtH"}],"9oSDi":[function(require,module,exports) {
