@@ -47,4 +47,14 @@ h2, .game-title, .user-heading {
   color: #cc2c7c;
 }
 
+#game-over {
+  background-color: #000;
+  display: none;
+}
+
+#user-page {
+  color: #fff;
+  background-color: purple;
+}
+
 /*# sourceMappingURL=index.3a01df49.css.map */

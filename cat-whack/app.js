@@ -14,16 +14,14 @@ let gameOver = false;
 let gameTime = 60;
 
 
+
 if(!addAUser()){
-    gameOver = true
- 
+   gameOver = true;
 }else if (addAUser()){
     gameOver = false;
 }
 
-// if(!addAUser()) {
-//     gameTime = 0;
-// }
+
 
 
 function beginGame() {
@@ -37,9 +35,6 @@ function beginGame() {
     
     setInterval(moveCatOne, 1000);
     setInterval(moveCatTwo, 2000)
-
-
-
 }
 
 
@@ -117,6 +112,7 @@ function addAUser() {
 
         if(!userNameInput){
             gameOver = true
+            clearInterval(gameTimerId)
         }if (userNameInput){
             gameOver = false;
         }
@@ -124,23 +120,50 @@ function addAUser() {
         console.log(userDisplay)
 
         userDisplay.innerHTML = "Welcome " + userNameInput.value + "!";
+        
+        let startGame = document.getElementById("user-page");
+        let gamePage = document.getElementById("game-page");
+        let gameOverScreen = document.getElementById("game-over");
+        startGame.style.display = "none";
+        gamePage.style.display = "block";
+        gameOverScreen.style.display = "none";
+        clearInterval(gameTimerId)
+        gameTimerId = setInterval(timer, 1000);
+        
     });
 }
 
+var gameTimerId;
+
 function timer() {
     const timeRemaining = document.querySelector('#time-remaining');
-    
-    gameTime--
+    // const gameOverScreen = document.querySelector('#game-over');
+    gameTime--;
     timeRemaining.textContent = gameTime
+
+
 
     if (gameTime == 0) {
         clearInterval(gameTimerId);
         gameOver = true;
-        alert("Game Over! Your Score is " + score + "!")    
+        gameOverScreen();
+       // alert("Game Over! Your Score is " + score + "!")  
+        // gameOverScreen.classList.toggle('#game-over');  
     }
-    
+
+    console.log(timer)
+
 }
 
-let gameTimerId = setInterval(timer, 1000)
 
 
+function gameOverScreen(){
+    let startGame = document.getElementById("user-page");
+    let gamePage = document.getElementById("game-page");
+    let gameOverScreen = document.getElementById("game-over");
+    startGame.style.display = "none";
+    gamePage.style.display = "none";
+    gameOverScreen.style.display = "block";
+
+    
+}

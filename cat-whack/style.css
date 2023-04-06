@@ -64,4 +64,13 @@ h2{
 }
 
 
+#game-over{
+    background-color: black;
+    display: none;
+}
 
+#user-page{
+    background-color: purple;
+    color: white;
+
+}
