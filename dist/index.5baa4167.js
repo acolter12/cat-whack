@@ -557,25 +557,29 @@ function hmrAccept(bundle, id) {
 }
 
 },{}],"igcvL":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-var _userInfoJs = require("./user-info.js");
-var _userInfoJsDefault = parcelHelpers.interopDefault(_userInfoJs);
-var _utilsJs = require("./utils.js");
+"use strict";
+var _userInfo = _interopRequireDefault(require("5f4895c198be7f92"));
+var _utils = require("d738412472247045");
+function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : {
+        "default": obj
+    };
+}
 renderPage();
 function renderPage() {
     gamePlay();
     addAUser();
 }
-let catOnePosition;
-let catTwoPosition;
-let score = 0;
-let gameOver = false;
-let gameTime = 30;
+var catOnePosition;
+var catTwoPosition;
+var score = 0;
+var gameOver = false;
+var gameTime = 30;
 if (!addAUser()) gameOver = true;
 else if (addAUser()) gameOver = false;
 function gamePlay() {
-    for(let i = 0; i < 9; i++){
-        let hole = document.createElement("div");
+    for(var i = 0; i < 9; i++){
+        var hole = document.createElement("div");
         hole.id = i.toString();
         hole.addEventListener("click", selectHole);
         document.getElementById("game-board").appendChild(hole);
@@ -584,13 +588,13 @@ function gamePlay() {
     setInterval(moveCatTwo, 1000);
 }
 function randomHole() {
-    let num = Math.floor(Math.random() * 9);
+    var num = Math.floor(Math.random() * 9);
     return num.toString();
 }
 function moveCatOne() {
     if (gameOver) return;
-    let catOne = document.querySelector("#catOne");
-    let num = randomHole();
+    var catOne = document.querySelector("#catOne");
+    var num = randomHole();
     if (catTwoPosition && catTwoPosition.id == num) return;
     if (catOnePosition && catOnePosition.id == num) return;
     catOnePosition = document.getElementById(num);
@@ -600,8 +604,8 @@ function moveCatOne() {
 }
 function moveCatTwo() {
     if (gameOver) return;
-    let catTwo = document.querySelector("#catTwo");
-    let num = randomHole();
+    var catTwo = document.querySelector("#catTwo");
+    var num = randomHole();
     if (catTwoPosition && catTwoPosition.id == num) return;
     if (catOnePosition && catOnePosition.id == num) return;
     catTwoPosition = document.getElementById(num);
@@ -620,14 +624,14 @@ function selectHole() {
     }
 }
 function addAUser() {
-    const createUserButton = document.querySelector("#createUser_button");
-    const userNameInput = document.querySelector("#userName");
-    createUserButton.addEventListener("click", ()=>{
-        const createUser = new (0, _userInfoJsDefault.default)(userNameInput.value);
-        const userDisplay = document.querySelector("#userDisplay");
-        const userInfoPara = document.createElement("p");
-        const userInfoSection = document.createElement("section");
-        (0, _utilsJs.displayUserStats)(userInfoPara, createUser);
+    var createUserButton = document.querySelector("#createUser_button");
+    var userNameInput = document.querySelector("#userName");
+    createUserButton.addEventListener("click", function() {
+        var createUser = new _userInfo["default"](userNameInput.value);
+        var userDisplay = document.querySelector("#userDisplay");
+        var userInfoPara = document.createElement("p");
+        var userInfoSection = document.createElement("section");
+        (0, _utils.displayUserStats)(userInfoPara, createUser);
         userInfoSection.appendChild(userInfoPara);
         userDisplay.appendChild(userInfoSection);
         if (!userNameInput) {
@@ -636,9 +640,9 @@ function addAUser() {
         }
         if (userNameInput) gameOver = false;
         userDisplay.innerHTML = "Nice job, " + userNameInput.value + "!";
-        let startGame = document.getElementById("user-page");
-        let gamePage = document.getElementById("game-page");
-        let gameOverScreen = document.getElementById("game-over");
+        var startGame = document.getElementById("user-page");
+        var gamePage = document.getElementById("game-page");
+        var gameOverScreen = document.getElementById("game-over");
         startGame.style.display = "none";
         gamePage.style.display = "block";
         gameOverScreen.style.display = "none";
@@ -648,7 +652,7 @@ function addAUser() {
 }
 var gameTimerId;
 function timer() {
-    const timeRemaining = document.querySelector("#time-remaining");
+    var timeRemaining = document.querySelector("#time-remaining");
     gameTime--;
     timeRemaining.textContent = gameTime;
     if (gameTime == 0) {
@@ -658,64 +662,82 @@ function timer() {
     }
 }
 function gameOverScreen() {
-    let startGame = document.getElementById("user-page");
-    let gamePage = document.getElementById("game-page");
-    let gameOverScreen = document.getElementById("game-over");
+    var startGame = document.getElementById("user-page");
+    var gamePage = document.getElementById("game-page");
+    var gameOverScreen = document.getElementById("game-over");
     startGame.style.display = "none";
     gamePage.style.display = "none";
     gameOverScreen.style.display = "block";
-    const endDisplay = document.querySelector("#endDisplay");
+    var endDisplay = document.querySelector("#endDisplay");
     endDisplay.innerHTML = "Your score is: " + score;
 }
 
-},{"./user-info.js":"9oSDi","./utils.js":"bIDtH","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9oSDi":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-class UserInfo {
-    constructor(userName){
-        this.userName = userName;
+},{"5f4895c198be7f92":"9oSDi","d738412472247045":"bIDtH"}],"9oSDi":[function(require,module,exports) {
+"use strict";
+function _typeof(obj) {
+    "@babel/helpers - typeof";
+    return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(obj) {
+        return typeof obj;
+    } : function(obj) {
+        return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+    }, _typeof(obj);
+}
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports["default"] = void 0;
+function _defineProperties(target, props) {
+    for(var i = 0; i < props.length; i++){
+        var descriptor = props[i];
+        descriptor.enumerable = descriptor.enumerable || false;
+        descriptor.configurable = true;
+        if ("value" in descriptor) descriptor.writable = true;
+        Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor);
     }
 }
-exports.default = UserInfo;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
-exports.interopDefault = function(a) {
-    return a && a.__esModule ? a : {
-        default: a
-    };
-};
-exports.defineInteropFlag = function(a) {
-    Object.defineProperty(a, "__esModule", {
-        value: true
+function _createClass(Constructor, protoProps, staticProps) {
+    if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+    if (staticProps) _defineProperties(Constructor, staticProps);
+    Object.defineProperty(Constructor, "prototype", {
+        writable: false
     });
-};
-exports.exportAll = function(source, dest) {
-    Object.keys(source).forEach(function(key) {
-        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
-        Object.defineProperty(dest, key, {
-            enumerable: true,
-            get: function() {
-                return source[key];
-            }
-        });
-    });
-    return dest;
-};
-exports.export = function(dest, destName, get) {
-    Object.defineProperty(dest, destName, {
-        enumerable: true,
-        get: get
-    });
-};
+    return Constructor;
+}
+function _toPropertyKey(arg) {
+    var key = _toPrimitive(arg, "string");
+    return _typeof(key) === "symbol" ? key : String(key);
+}
+function _toPrimitive(input, hint) {
+    if (_typeof(input) !== "object" || input === null) return input;
+    var prim = input[Symbol.toPrimitive];
+    if (prim !== undefined) {
+        var res = prim.call(input, hint || "default");
+        if (_typeof(res) !== "object") return res;
+        throw new TypeError("@@toPrimitive must return a primitive value.");
+    }
+    return (hint === "string" ? String : Number)(input);
+}
+function _classCallCheck(instance, Constructor) {
+    if (!(instance instanceof Constructor)) throw new TypeError("Cannot call a class as a function");
+}
+var UserInfo = /*#__PURE__*/ _createClass(function UserInfo(userName) {
+    _classCallCheck(this, UserInfo);
+    this.userName = userName;
+});
+var _default = UserInfo;
+exports["default"] = _default;
 
 },{}],"bIDtH":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "displayUserStats", ()=>displayUserStats);
-const displayUserStats = (element, object)=>{
+"use strict";
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.displayUserStats = void 0;
+var displayUserStats = function displayUserStats(element, object) {
     Element.innerTest = " Username " + object.userName;
 };
+exports.displayUserStats = displayUserStats;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["2waQk","igcvL"], "igcvL", "parcelRequire0bdb")
+},{}]},["2waQk","igcvL"], "igcvL", "parcelRequire0bdb")
 
 //# sourceMappingURL=index.5baa4167.js.map
