@@ -27,12 +27,12 @@ body{
 .game-stats{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
     text-align: center;
     background-color: purple;
     border: 5px double orange;
     border-radius: 5rem;
-    width: 20%;
+    width: 30%;
     height: 100%;
     opacity: 95%;
     margin: auto;
@@ -130,10 +130,11 @@ h2{
     height: 100%;
     opacity: 95%;
     margin: auto;
-    margin-top: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
     padding-bottom: 3px;
     padding-top: 1rem;
-    padding: 2rem;
+    padding: 1rem;
     font-family: 'Space Mono';
     font-style: normal;
     color: white;
