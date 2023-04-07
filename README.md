@@ -7,7 +7,7 @@
 - `git clone` the app
 - `cd` into the application
 - `npm install` to install the dependencies
-
+- `npm start` to run the application
 ## To Play
 
 - Enter your username to start the game
@@ -18,3 +18,4 @@
 - Your final score will appear when game ends (30 seconds)
 
 #### Images & graphics created in Procreate by Adrian Colter
+
